@@ -49,17 +49,17 @@ WasteFlow features a unified, dedicated **Academic CO4 Demonstration** dashboard
 - **C Compiler (Optional for COA Native)**: 64-bit MinGW GCC (`x86_64-w64-mingw32-gcc`)
 
 ### 1. Backend Application (Spring Boot)
-Open a terminal in `backend`:
+Open a terminal in `WasteFlow-Smart-Waste-Management-main/backend`:
 ```powershell
-Set-Location "backend"
+Set-Location "WasteFlow-Smart-Waste-Management-main\backend"
 .\mvnw.cmd spring-boot:run
 ```
 The backend starts on `http://localhost:8080`.
 
 ### 2. Frontend Application (React + Vite)
-Open a separate terminal in `frontend`:
+Open a separate terminal in `WasteFlow-Smart-Waste-Management-main/frontend`:
 ```powershell
-Set-Location "frontend"
+Set-Location "WasteFlow-Smart-Waste-Management-main\frontend"
 npm install
 npm run dev
 ```
@@ -68,13 +68,14 @@ The frontend interface starts on `http://localhost:5173`.
 ### 3. Run Backend Unit Tests
 To execute all 68 automated unit and integration tests:
 ```powershell
-Set-Location "backend"
+Set-Location "WasteFlow-Smart-Waste-Management-main\backend"
 .\mvnw.cmd test
 ```
 
 ### 4. Standalone Desktop Client (Java Swing)
 To package and launch the desktop operations client:
 ```powershell
+Set-Location "WasteFlow-Smart-Waste-Management-main"
 .\backend\mvnw.cmd -f desktop\pom.xml package
 java -jar desktop\target\wasteflow-desktop.jar
 ```
@@ -101,24 +102,3 @@ java -jar desktop\target\wasteflow-desktop.jar
 - `POST /api/coa/route-totals`: 64-bit accumulator addition of route distance and travel time.
 - `POST /api/coa/route-workload`: Successive addition loop with `DEC RCX` and `JNZ`.
 - `POST /api/coa/route-summary`: Null-terminated string processing via `LODSB` and `STOSB`.
-
----
-
-## Project Verification & Faculty Evaluation Guide
-
-1. **Academic CO4 Demonstration Tab**: Click the **Academic CO4** tab in the main sidebar.
-2. **PL Tab**:
-   - Run exact hash search (`BIN-001`) vs missing search (`BIN-999`).
-   - Run live sorting with Merge Sort.
-   - Click "Run Benchmark" with N=25, N=100, N=500 to see real CPU execution times.
-   - Click "Inspect Live Hash Index" to view table slots and linear probing displacements.
-3. **PSOOP Tab**:
-   - Click "Export Bins CSV", "Export Trucks CSV", or "Export Route CSV" to download actual database records.
-   - Click "Verify CSV File Read & Parse" to verify `CsvFileWriter.read()` round-trip parsing.
-4. **COA Tab**:
-   - Select a bin and run count, click "Run CO4 Processor Mapping".
-   - Review assembly instructions, register values, ALU flags, and native x86-64 verification badges.
-5. **Computer Graphics Tab**:
-   - Toggle between 2D Canvas and 3D Three.js WebGL rendering.
-   - Verify coordinate precision in the alignment table.
-   - Play truck animation to verify forward heading rotation along route segments.
