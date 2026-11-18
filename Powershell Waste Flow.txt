@@ -1,0 +1,6 @@
+Set-Location "C:\Drive\VS code\Waste Flow"
+.\backend\mvnw.cmd -f desktop\pom.xml package
+
+
+
+java -jar desktop\target\wasteflow-desktop.jar
